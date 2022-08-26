@@ -6,7 +6,6 @@
 from scrapy import signals
 
 # useful for handling different item types with a single interface
-from itemadapter import is_item, ItemAdapter
 
 
 class CrawlerSpiderMiddleware:
@@ -33,8 +32,7 @@ class CrawlerSpiderMiddleware:
         # it has processed the response.
 
         # Must return an iterable of Request, or item objects.
-        for i in result:
-            yield i
+        yield from result
 
     def process_spider_exception(self, response, exception, spider):
         # Called when a spider or process_spider_input() method
@@ -49,11 +47,10 @@ class CrawlerSpiderMiddleware:
         # that it doesn’t have a response associated.
 
         # Must return only requests (not items).
-        for r in start_requests:
-            yield r
+        yield from start_requests
 
     def spider_opened(self, spider):
-        spider.logger.info('Spider opened: %s' % spider.name)
+        spider.logger.info("Spider opened: %s" % spider.name)
 
 
 class CrawlerDownloaderMiddleware:
@@ -100,4 +97,4 @@ class CrawlerDownloaderMiddleware:
         pass
 
     def spider_opened(self, spider):
-        spider.logger.info('Spider opened: %s' % spider.name)
+        spider.logger.info("Spider opened: %s" % spider.name)

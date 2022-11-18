@@ -14,10 +14,6 @@ sentry-sdk = "^1.9.5"
 version = "*"
 optional = true
 
-[tool.poetry.dev-dependencies]
-paradox-pydevdeps = {git = "https://github.com/ParadoxAi/paradox-pydevdeps.git", rev = "f64716c5b8e37233e3cf69645513572fb2a65f7d"}
-
-
 [tool.poetry.extras]
 lint = ["pylint"]
 

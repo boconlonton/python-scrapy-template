@@ -22,7 +22,3 @@ line-length = 120
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.nitpick]
-    cache = "never"
-    style = "https://raw.githubusercontent.com/ParadoxAi/paradox-pydevdeps/master/styleguide/nitpick-style.toml"
